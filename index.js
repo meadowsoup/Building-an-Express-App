@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 
 const aboutRoute = require('./routes/about');
+const greetRoute = require('./routes/greet');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -14,6 +15,7 @@ app.use(morgan('dev'));
 app.set('view-engine', 'ejs')
 
 app.use('/about', aboutRoute);
+app.use('/greet', greetRoute);
 
 app.get('/', (req, res) => {
      res.send("This is the home page")
